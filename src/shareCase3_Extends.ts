@@ -13,7 +13,7 @@ type Say<T extends string> = T;
 type TestSay = Say<"123">;
 // type TestSay1 = Say<123>;
 
-// 模式匹配
+// 模式匹配 & 条件类型
 type Match<T extends string> = T extends "a" ? true : false;
 
 type TestMatch = Match<"a">;
