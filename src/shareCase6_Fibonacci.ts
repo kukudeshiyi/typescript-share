@@ -1,11 +1,19 @@
 // 1、1、2、3、5、8、13、21、34
 
 type _Fibonacci<
-  T extends number,
-  Result extends number[] = [1, 1],
-  Len extends number = Result["length"]
-> = T extends Len ? Result[T] : _Fibonacci<T, [...Result]>;
+  Num extends number = 1,
+  FirstArr extends unknown[] = [],
+  SecondArr extends unknown[] = [unknown],
+  IdxArr extends unknown[] = [unknown]
+> = IdxArr["length"] extends Num
+  ? SecondArr["length"]
+  : _Fibonacci<
+      Num,
+      SecondArr,
+      [...FirstArr, ...SecondArr],
+      [...IdxArr, unknown]
+    >;
 
-type Fibonacci<T extends number> = T extends 0 ? T : _Fibonacci<T>;
+type Fibonacci<T extends number> = _Fibonacci<T>;
 
-type testFibonacci = Fibonacci<0>;
+type testFibonacci = Fibonacci<1>;
