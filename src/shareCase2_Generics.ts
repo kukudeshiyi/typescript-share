@@ -1,18 +1,18 @@
-// 函数
+// 1、函数
 function FuncCase<T>(params: T): T {
   return params;
 }
 
 const a = FuncCase<number>(123);
 
-// 接口类型
+// 2、接口类型
 interface InterfaceCase<T> {
   property: T;
 }
 
 const object1: InterfaceCase<Boolean> = { property: true };
 
-// 类型别名 & 泛型默认值
+// 3、类型别名 & 泛型默认值
 type Praise<
   T extends string,
   R extends string = "is very handSome"

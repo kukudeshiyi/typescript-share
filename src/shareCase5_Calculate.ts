@@ -1,4 +1,4 @@
-// 构造不同长度的数组
+// 构造不同长度的数组 && 递归
 type CreateArray<
   Length extends number,
   Value extends unknown = "",
@@ -25,7 +25,7 @@ type Minus<T extends number, R extends number> = CreateArray<T> extends [
   ? Rest["length"]
   : never;
 
-type testMinus = Minus<2, 1>;
+type testMinus = Minus<3, 1>;
 
 // 乘
 type Multiply<

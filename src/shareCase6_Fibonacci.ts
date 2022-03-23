@@ -16,4 +16,4 @@ type _Fibonacci<
 
 type Fibonacci<T extends number> = _Fibonacci<T>;
 
-type testFibonacci = Fibonacci<1>;
+type testFibonacci = Fibonacci<3>;
