@@ -2,6 +2,9 @@
 type DistributedType<T extends string> = T extends "a" | "c" ? "yes" : "no";
 type testDistributedType = DistributedType<"a" | "d">;
 
+// 缺陷
+type testIsEqual2 = IsEqual<"a", "a" | "c">;
+
 // 2、{} Object object {[key:string]:any} 的异同
 
 const snackCase1: [{}, {}, {}] = [1, "2", true];
@@ -28,6 +31,6 @@ type IsEqual_1<X, Y> = (<T>() => T extends X ? true : false) extends <
 // <T>() => T extends X ? true : false
 // <U>() => U extends Y ? true : false
 
-// type IsEqual_1<X, Y> = (() => X) extends () => Y ? true : false; // 佐证案例
+// type IsEqual_1<X, Y> = (<T>() => X) extends <U>() => Y ? true : false; // 佐证案例
 
 type testIsEqual_1 = IsEqual_1<"a", "a" | "c">;

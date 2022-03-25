@@ -40,8 +40,9 @@ type TestMatchObject1 = MatchObject<{ other: string }>;
 type IsEqual<T, R> = T extends R ? (R extends T ? true : false) : false;
 
 type testIsEqual = IsEqual<"a", "a">;
-type testIsEqual1 = IsEqual<"a", "a" | "c">;
-type testIsEqual2 = IsEqual<
+type testIsEqual1 = IsEqual<
   { breathe: boolean },
   { breathe: boolean; other: string }
 >;
+
+// 有缺陷
